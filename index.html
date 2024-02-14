@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.BOT v2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #7289da;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+
+      nav {
+        display: none;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      nav a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+
+      .menu-icon {
+        cursor: pointer;
+        font-size: 24px;
+        margin-left: 15px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      /* Style for the category pages (BOTについて, コマンド一覧, 利用規約) */
+      .category {
+        display: none;
+      }
+
+      .category.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="menu-icon" onclick="toggleNav()">&#9776;</span>
+      <h1>R.BOT v2 Support</h1>
+    </header>
+
+    <nav>
+      <a href="#" onclick="showCategory('home')">HOME</a>
+      <a href="#" onclick="showCategory('about')">BOTに関して</a>
+      <a href="#" onclick="showCategory('commands')">コマンド一覧</a>
+      <a href="#" onclick="showCategory('terms')">利用規約</a>
+      <a href="#" onclick="showCategory('online')"
+        >R.BOTの最新情報・更新情報・メンテナンス</a
+      >
+    </nav>
+
+    <main>
+      <div class="category home active">
+        <h5 class="text-primary mb-2"><strong>R.BOT v2</strong></h5>
+        <h1>R.BOT v2公式ホームページ</h1>
+        <a
+          class="btn btn-secondary btn-lg"
+          role="button"
+          href="https://discord.com/api/oauth2/authorize?client_id=1186678650565820508&permissions=8&scope=bot+applications.commands"
+          target="_blank"
+          >招待リンク</a
+        >
+      </div>
+
+      <div class="category about">
+        <h1>BOTについて</h1>
+        <h2>言語: JavaScript</h2>
+        <h2>node.js 16.x</h2>
+        <h2>discord.js v13</h2>
+
+        <h2>制作者: RUI</h2>
+        <h2>discord: @kzv3</h2>
+        <h2>X: @rui06060</h2>
+
+        <a
+          class="btn btn-secondary btn-lg"
+          role="button"
+          href="https://discord.gg/rserver"
+          target="_blank"
+          >サポートサーバー</a
+        >
+      </div>
+
+      <div class="category commands">
+        <h1>コマンド一覧</h1>
+        <h2>管理:PREFIXコマンド</h2>
+        <p>BAN機能 r.ban @user</p>
+        <p>kick機能 r.kick @user</p>
+        <p>タイムアウト機能 r.timeout @user ◯日,時間,分,秒 理由</p>
+        <p>タイムアウト解除機能 r.untimeout @user</p>
+        <p>投票機能 r.vote タイトル 選択肢(1-4)で投票パネルを設置</p>
+
+        <h2>サーバー関連:PREFIXコマンド</h2>
+        <p>BANユーザー確認 r.banlist</p>
+        <p>チャンネルログを削除 r.nuke</p>
+        <p>チャンネルメッセージを削除 r.clear メッセージ数</p>
+        <p>メッセージ詳細を表示 メッセージリンクをチャンネルに貼り付け</p>
+        <p>入退室ログ送信チャンネル登録 r.welcomelog チャンネルID</p>
+        <p>入退室ログ送信チャンネル削除 r.deletelog サーバーID チャンネルID</p>
+
+        <h2>その他:PREFIXコマンド</h2>
+        <p>おみくじ機能画像版 r.omi.g</p>
+        <p>日付表示機能 r.day</p>
+        <p>QRコード作成機能 r.qr カスタム文字</p>
+        <p>ユーザーアバター確認 r.avatar @user</p>
+        <p>Make it a quote風画像生成 reply @R.BOT</p>
+        <p>NSFW Neko画像生成 r.neko type(例:neko,hentai,paizuri)</p>
+        <h2>ユーザー管理</h2>
+        <p>/kick 指定したユーザーをサーバーからキックします</p>
+        <p>/ban 指定したユーザーをサーバーからBANします</p>
+        <p>/addrole 指定したユーザーに指定したロールを付与します</p>
+
+        <p>/deleterole 指定したユーザーから指定したロールを削除します</p>
+        <p>/editusername 指定したユーザーのサーバーニックネームを設定します</p>
+        <p>/timeout 指定したユーザーをタイムアウトします</p>
+
+        <p>/untimeout 指定したユーザーのタイムアウトを解除します</p>
+
+        <p>/unban 指定したユーザーIDのユーザーのBANを解除します</p>
+        <h2>SETUP</h2>
+        <p>/メッセージをピン留め 指定したメッセージを一番下に表示します</p>
+        <p>
+          /低速モード設定 指定されたチャンネルに指定した時間低速を設定します
+        </p>
+        <p>/create-channel 指定された名前のチャンネルを作成します</p>
+        <p>/create-role 指定された名前のロールを作成します</p>
+        <p>/vote 投票を作成します</p>
+        <p>/endvote 投票を集計します</p>
+        <p>/panel 対応状況パネルを設置します</p>
+        <p>/rolepanel 役職パネルを設置します</p>
+        <p>/shop-create 自販機を作成します</p>
+        <p>/slot-create 指定したユーザーのスロットチャンネルを作成します</p>
+        <p>/ticket チケットパネルを作成します</p>
+        <p>/verify 認証パネルを作成します</p>
+        <p>
+          /verification-custom
+          複数の認証形式の中から選択して認証パネルを設置します
+        </p>
+        <h2>サーバー管理</h2>
+        <p>/clear チャンネルのメッセージを削除します(1-100)</p>
+        <p>/nuke チャンネルのメッセージをすべて削除します</p>
+        <p>
+          /deletechannel
+          サーバーのすべてのチャンネルを削除します。注意して実行してください
+        </p>
+        <p>/welcomelog-setting 入退室ログを送信するチャンネルを登録します</p>
+        <p>/welcomelog-delete 登録されているチャンネルを削除します。</p>
+        <h2>ツール</h2>
+        <p>
+          /chat-log
+          指定された数のメッセージを取得してファイルに記入します(1-100)
+        </p>
+        <p>/calculate 電卓機能</p>
+        <p>/countmessages チャンネルのメッセージ数を表示します</p>
+        <p>/exchange 通貨を換算します</p>
+        <p>/dm-request 指定したユーザーにメッセージを送信します。(悪用厳禁)</p>
+        <p>/google-image-search 指定したワードからgoogle画像検索を行います</p>
+        <p>/google-search 指定したワードからgoogle検索を行います</p>
+        <p>
+          /make-file 指定した文字を記入したファイルを生成します(拡張子選択可)
+        </p>
+        <p>/news ニュースを表示します</p>
+        <p>/newssearch ニュースを検索して表示します</p>
+        <p>/qrcode 指定されたテキストからQRコードを生成します</p>
+        <p>/review ユーザーのレビューを送信します</p>
+        <p>/url-button 指定されたURLのボタンを作成します</p>
+        <h2>その他</h2>
+        <p>/embed カスタムした埋め込みメッセージを作成します</p>
+        <p>/おみくじ おみくじを引きます</p>
+        <p>/おみくじパネル おみくじパネルを設置します</p>
+        <p>
+          /mention 指定したユーザーを指定した数だけメンションします(悪用厳禁)
+        </p>
+        <p>/message 指定したチャンネルに指定したメッセージを送信します</p>
+        <p>/messagecreate 指定したメッセージを指定した回数送信します</p>
+        <p>/nitro-generator 未確認NITROギフトリンクを生成します</p>
+        <p>/paypay-generator 未確認paypayリンクを生成します</p>
+        <p>/nsfw-neko NekoAPIを使用した画像検索機能</p>
+        <p>/ping pingを表示します</p>
+        <p>/timer タイマー機能</p>
+      </div>
+
+      <div class="category terms">
+        <h1>利用規約</h1>
+        <h2>適用</h2>
+        <p>
+          ・本規約は、ユーザーと本チームとの間の本サービスの利用に関わる一切の関係に適用されるものとします。
+          ・本チームは本サービスに関し、本規約のほか、ご利用にあたってのルール等、各種の定め（以下，「個別規定」）をすることがあります。これら個別規定はその名称のいかんに関わらず、本規約の一部を構成するものとします。
+          ・本規約の規定が前条の個別規定の規定と矛盾する場合には、個別規定において特段の定めなき限り、個別規定の規定が優先されるものとします。
+        </p>
+        <h2>利用及び制限</h2>
+        <p>
+          ・本規約は、サーバーの所有者又は管理者がボットの導入または、ユーザーが本サービスを利用されているサーバーに属することで適用されるものとします。
+          ・本チームは、ユーザーが以下条件のいずれかに該当する場合は、事前の通知なくユーザーに対して、本サービスの全部もしくは一部の利用を制限することができるものとします。
+          1. 本チームのガイドラインや本規約のいずれかの条項に違反した場合 2.
+          その他、本サービスの利用を適切でないと判断した場合
+        </p>
+        <h2>禁止事項</h2>
+        <p>
+          ・ユーザーは、本サービスの利用にあたり、以下の行為をしないものとします。
+          1. 提供先のガイドラインや利用規約に違反する行為
+          2.他のユーザーに関する個人情報等を収集または蓄積する行為
+          3.他のユーザーに許可なく成りすます行為
+          4.他のユーザーまたはその他の第三者に不利益、損害、不快感を与える行為
+          5.本サービスに対し、不正アクセスをし、またはこれを試みる行為
+          6.本サービスの運営を妨害し、またはこれを試みる行為
+          7.本サービスに対して故意に負荷をかける行為
+          8.本サービスの不具合・バグなどを悪用する行為
+          9.本サービスの機能などをコピーまたは、全部あるいは一部を許可なく利用する行為
+          10. 不正な目的を持って本サービスを利用する行為
+          11.本サービス上のコンテンツを悪用する行為
+          12.本サービスで得た情報を営利目的に利用する行為
+          13.運営チームが許諾しない本サービス上での宣伝、広告、勧誘、または営業行為
+          14. 法令または公序良俗に違反する行為 15. 犯罪行為に関連する行為
+          16.本チームのサービスに関連して、反社会的勢力に対して直接または間接に利益を供与する行為
+          17. 本チームが不適切と判断する行為
+        </p>
+        <h2>本サービスの提供の停止等</h2>
+        <p>
+          ・本チームは、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
+          1.
+          本サービスにかかるコンピュータシステムの保守点検または更新を行う場合
+          2.
+          地震、落雷、火災、停電または天災などの不可抗力により、本サービスの提供が困難となった場合
+          3. コンピュータまたは通信回線等が事故により停止した場合 4.
+          その他、本チームが本サービスの提供が困難と判断した場合
+          ・本チームは、本サービスの提供の停止または中断により、ユーザーまたは第三者が被ったいかなる不利益または損害についても、一切の責任を負わないものとします。
+        </p>
+        <h2>利用制限</h2>
+        <p>
+          ・本チームは、ユーザーが以下のいずれかに該当する場合には、事前の通知なく、ユーザーに対して、本サービスの全部もしくは一部の利用を制限することができるものとします。
+          1. 提供先のガイドラインや利用規約のいずれかの条項に違反した場合 2.
+          本規約やルール・ガイドラインのいずれかの条項に違反した場合 3.
+          提供先の登録事項に虚偽の事実があることが判明した場合 4.
+          本チームからの連絡に対し、一定期間返答がない場合 5.
+          その他、本チームが本サービスの利用を適当でないと判断した場合
+          ・本チームは、本条に基づき本チームが行った行為によりユーザーに生じた損害について、一切の責任を負いません。
+        </p>
+        <h2>利用規約の変更</h2>
+        <p>
+          ・本チームは以下の場合には、ユーザーの個別の同意を要せず、本規約を変更することができるものとします。
+          1. 本規約の変更がユーザーの一般の利益に適合するとき。 2.
+          本規約の変更が本サービス利用契約の目的に反せず、かつ、変更の必要性、変更後の内容の相当性その他の変更に係る事情に照らして合理的なものであるとき。
+          ・本チームはユーザーに対し、前項による本規約の変更にあたり、事前に、本規約を変更する旨及び変更後の本規約の内容並びにその効力発生時期を通知します。
+        </p>
+      </div>
+      <div class="category online">
+        <h1>更新情報・メンテナンス</h1>
+        <h2>最新のお知らせ</h2>
+        <h3>
+          現在ありがたいことに導入サーバーが100サーバーを突破しており、認証が通ってないため、BOTの導入ができません。認証が通るまで申し訳ありませんが導入することはできません。
+        </h3>
+        <h2>更新情報</h2>
+        <h3>更新情報はありません</h3>
+
+        <h2>メンテナンス情報</h2>
+        <h3>現在メンテナンスは行われていません</h3>
+
+        <p>
+          メンテナンスが行われている場合BOTのstatusは画像のようになります。この期間は機能が正常に処理されない場合がございます
+        </p>
+        <p>
+          <img
+            src="https://cdn.glitch.global/4a4c69a1-53e7-434e-8fbd-13302f0f21e5/image0.webp?v=1707928638480"
+          />
+        </p>
+      </div>
+    </main>
+    <script>
+      function toggleNav() {
+        const nav = document.querySelector("nav");
+        nav.style.display =
+          nav.style.display === "none" || nav.style.display === ""
+            ? "block"
+            : "none";
+      }
+
+      function showCategory(category) {
+        // Hide all categories
+        const categories = document.querySelectorAll(".category");
+        categories.forEach((cat) => {
+          cat.classList.remove("active");
+        });
+
+        // Show the selected category
+        const selectedCategory = document.querySelector(
+          `.category.${category}`
+        );
+        selectedCategory.classList.add("active");
+
+        // Close the navigation menu
+        const nav = document.querySelector("nav");
+        nav.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
