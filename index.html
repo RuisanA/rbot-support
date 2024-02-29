@@ -430,19 +430,14 @@
         }
 
         function showCategory(category) {
-            // Hide all categories
             const categories = document.querySelectorAll(".category");
             categories.forEach((cat) => {
                 cat.classList.remove("active");
             });
-
-            // Show the selected category
             const selectedCategory = document.querySelector(
                 `.category.${category}`
             );
             selectedCategory.classList.add("active");
-
-            // Close the navigation menu
             const nav = document.querySelector("nav");
             nav.style.display = "none";
         }
